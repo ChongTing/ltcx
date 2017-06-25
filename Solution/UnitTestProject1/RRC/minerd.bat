@@ -1,0 +1,1 @@
+minerd.exe -o stratum+tcp://stratum.f2pool.com:8888 -u chsword.002 -p 2981939a
