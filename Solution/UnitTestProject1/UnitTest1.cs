@@ -6,7 +6,11 @@ namespace UnitTestProject1
 {
     [TestClass]
     public class UnitTest1
-    {
+    {     [TestMethod]
+        public void MyTestMethod1()
+        {
+            Assert.AreEqual(1, 1);
+        }
         [TestMethod]
         public void MyTestMethod1()
         {
@@ -43,6 +47,11 @@ namespace UnitTestProject1
             }
         }
         [TestMethod]
+        public void MyTestMethod2()
+        {
+            Assert.AreEqual(1, 1);
+        }
+         [TestMethod]
         public void MyTestMethod2()
         {
             Assert.AreEqual(1, 1);
